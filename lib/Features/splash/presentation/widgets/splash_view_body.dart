@@ -1,4 +1,6 @@
+import 'package:bookly_app/Features/home/presentation/view/home_view.dart';
 import 'package:bookly_app/Features/splash/presentation/widgets/sliding_text.dart';
+import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +19,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     initSlidingAnimation();
+    Future.delayed(kTransationDuration, () {
+      if (!mounted) return;
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomeView()));
+    });
     super.initState();
   }
 
