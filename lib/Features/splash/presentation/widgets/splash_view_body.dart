@@ -19,12 +19,16 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     initSlidingAnimation();
+    navigateToHome();
+    super.initState();
+  }
+
+  void navigateToHome() {
     Future.delayed(kTransationDuration, () {
       if (!mounted) return;
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => HomeView()));
     });
-    super.initState();
   }
 
   void initSlidingAnimation() {
